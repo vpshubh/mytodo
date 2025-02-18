@@ -64,6 +64,8 @@
                   {% else %}
                   <a class="btn btn-sm btn-dark" href="{% url 'complete_todo' todo.id %}">Complete</a>
                   {% endif %}
+                  <a class="btn btn-sm btn-danger" href="{% url 'delete_todo' todo.id %}">Complete</a>
+
                 </td>
               </tr>
               {% endfor %}
