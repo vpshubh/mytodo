@@ -4,7 +4,7 @@ from .models import Todo
 
 # Create your views here.
 def todo_list(request):
-    todos=Todo.objects.all()
+    todos=Todo.objects.order_by('-id').all()
     return render(request, 'todo/index.html',{'todos':todos})
 
 def create_todo(request):
@@ -23,4 +23,5 @@ def complete_todo(request, todo_id):
 def delete_todo(request, todo_id):
     todo= Todo.objects.get(id=todo_id)
     todo.save()
+    todo.delete()
     return redirect('todo_list')
